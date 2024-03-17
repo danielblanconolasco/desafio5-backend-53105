@@ -92,7 +92,7 @@ io.on("connection", async (socket) => {
 
 
         //Obtengo los mensajes de MongoDB y se los paso al cliente:
-        const messages = await ChatModel.find();
+        const messages = await ChatModel.find()
         io.sockets.emit("message", messages)
         console.log(messages)
     })
