@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "Keyboard",
+    "description": "A nice mechanical keyboard",
+    "price": 120,
+    "thumbnails": "./assets/img/keyboard1.jpg",
+    "code": "keyboard-1",
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 2,
+    "title": "Mouse",
+    "description": "A nice mouse",
+    "price": 90,
+    "thumbnails": "./assets/img/mouse1.jpg",
+    "code": "mouse-1",
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 3,
+    "title": "Monitor",
+    "description": "A nice monitor",
+    "price": 350,
+    "thumbnails": "./assets/img/monitor1.jpg",
+    "code": "monitor-1",
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 5,
+    "title": "Desktop",
+    "description": "A nice desktop",
+    "price": 1000,
+    "thumbnails": "./assets/img/desktop1.jpg",
+    "code": "desktop-1",
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 6,
+    "title": "Laptop",
+    "description": "A nice laptop",
+    "price": 1200,
+    "thumbnails": "./assets/img/laptop1.jpg",
+    "code": "laptop-1",
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 7,
+    "title": "Tablet",
+    "description": "A nice tablet",
+    "price": 800,
+    "thumbnails": "./assets/img/tablet1.jpg",
+    "code": "tablet-1",
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 8,
+    "title": "Printer",
+    "description": "A nice printer",
+    "price": 500,
+    "thumbnails": "./assets/img/printer1.jpg",
+    "code": "printer-1",
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 9,
+    "title": "Backpack",
+    "description": "A nice backpack",
+    "price": 80,
+    "thumbnails": "./assets/img/backpack1.jpg",
+    "code": "backpack-1",
+    "stock": 7,
+    "status": true
+  },
+  {
+    "id": 10,
+    "title": "Mousepad",
+    "description": "A nice mousepad",
+    "price": 20,
+    "thumbnails": "./assets/img/mousepad1.jpg",
+    "code": "mousepad-1",
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 11,
+    "title": "Webcam",
+    "description": "A nice webcam",
+    "price": 100,
+    "thumbnails": "./assets/img/webcam1.jpg",
+    "code": "webcam-1",
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 12,
+    "title": "Microphone",
+    "description": "A nice microphone",
+    "price": 150,
+    "thumbnails": "./assets/img/microphone1.jpg",
+    "code": "microphone-1",
+    "stock": 10,
+    "status": true
+  }
+]
