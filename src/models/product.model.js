@@ -33,6 +33,10 @@ const productSchema = new mongoose.Schema({
     thumbnails: {
         type: [String]
     }
+},
+{
+    collection: "products"
+
 });
 
 

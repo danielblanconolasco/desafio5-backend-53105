@@ -9,6 +9,9 @@ const chatSchema = new mongoose.Schema({
         type: String,
         required: true
     }
+},
+{
+    collection: "messages"
 })
 
 const ChatModel = mongoose.model("messages", chatSchema);

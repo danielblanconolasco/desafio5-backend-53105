@@ -1,5 +1,5 @@
 // Initialize the chat when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
+
     console.log("Conectado")
     const socket = io()
 
@@ -44,4 +44,3 @@ document.addEventListener('DOMContentLoaded', () => {
             log.innerHTML = mensajes
         }
     })
-})
