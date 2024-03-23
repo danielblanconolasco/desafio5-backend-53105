@@ -8,6 +8,10 @@ import ProductManager from './controllers/products-manager-db.js'
 const productManager = new ProductManager
 import "./database.js"
 import ChatModel from './models/message.model.js'
+import Handlebars from 'handlebars'
+import { registerHelpers } from './helpers.js';
+
+
 
 const PORT = 8080
 const app = express()
@@ -25,7 +29,7 @@ app.use(express.static(`./src/public`))
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "./src/public/img")
+        cb(null, "./src/public/assets/img")
     },
     filename: (req, file, cb) => {
         cb(null, file.originalname)
@@ -43,7 +47,13 @@ app.engine('handlebars', exphbs.engine({
 }))
 app.set(`view engine`, `handlebars`)
 app.set(`views`, `./src/views`)
+Handlebars.registerHelper('isArray', function (value) {
+    return Array.isArray(value)
+})
 
+
+// Register custom Handlebars helpers
+registerHelpers()
 
 // Rutas
 app.use('/api/products', productsRouter)
@@ -78,8 +88,8 @@ io.on("connection", async (socket) => {
     })
 
     // Add a product 
-    socket.on("addProduct", async ({ title, description, price, img, code, stock, category }) => {
-        await productManager.addProduct({ title, description, price, img, code, stock, category })
+    socket.on("addProduct", async ({ title, description, price, img, code, stock, category,thumbnails }) => {
+        await productManager.addProduct({ title, description, price, img, code, stock, category, thumbnails })
         io.sockets.emit("products", await productManager.getProducts())
     })
 

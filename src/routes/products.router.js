@@ -1,4 +1,5 @@
 import express from 'express'
+import multer from 'multer'
 const router = express.Router()
 import ProductManager from "../controllers/products-manager-db.js"
 import ProductModel from "../models/product.model.js"
@@ -6,6 +7,17 @@ import ProductModel from "../models/product.model.js"
 // Calling an instance for router to work
 const productManager = new ProductManager
 const productModel = new ProductModel()
+
+// Set up multer for file upload
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "./src/public/assets/img")
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname)
+    }
+})
+const upload = multer({ storage }).single("image")
 
 // Products Router
 router.get('/', async (req, res) => {
@@ -56,10 +68,21 @@ router.put('/:id', async (req, res) => {
         console.log(`Error updating the product by Id ${id}`, error)
     }
 })
-
-router.post(`/`, async (req, res) => {
+router.post(`/`, upload, async (req, res) => {
     try {
+        // Extract uploaded file information
+        const imageFile = req.file
+        if (!imageFile) {
+            return res.status(400).json({ error: 'No image file uploaded' })
+        }
+
+        // Extract other form data
         const newProduct = req.body
+
+        // Add the image file path to the newProduct object
+        newProduct.thumbnails = `/assets/img/${imageFile.originalname}`
+
+        // Call the addProduct method with the updated newProduct object
         const addedProduct = await productManager.addProduct(newProduct)
 
         if (addedProduct) {
@@ -72,6 +95,7 @@ router.post(`/`, async (req, res) => {
         res.status(500).send({ status: 500, message: `Internal server error` })
     }
 })
+
 
 router.delete('/:id', async (req, res) => {
     try {
